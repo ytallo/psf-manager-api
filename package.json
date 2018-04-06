@@ -1,0 +1,28 @@
+{
+	"name": "api",
+	"version": "0.1.0",
+	"private": true,
+	"main": "dist/index.js",
+	"scripts": {
+		"watch": "noderize-scripts watch",
+		"build": "noderize-scripts build",
+		"start": "noderize-scripts start",
+		"format": "noderize-scripts format",
+		"test": "noderize-scripts test",
+		"clean": "noderize-scripts clean"
+	},
+	"devDependencies": {
+		"@noderize/scripts": "^0.4.6"
+	},
+	"dependencies": {
+		"@noderize/runtime": "^0.4.6",
+		"bluebird": "^3.5.1",
+		"body-parser": "^1.18.2",
+		"compression": "^1.7.2",
+		"cors": "^2.8.4",
+		"dotenv-safe": "^5.0.1",
+		"express": "^4.16.3",
+		"lodash": "^4.17.5",
+		"mongoose": "^5.0.12"
+	}
+}
