@@ -66,9 +66,18 @@ PeopleSchema.statics = {
     name,
     cardNumber,
     medicalRecords,
-    address
+    address,
+    birthDate
   }) {
     let query = this.find();
+
+    if (birthDate) {
+      const [start, end] = birthDate;
+      query
+        .where("birthDate")
+        .lt(new Date(end))
+        .gt(new Date(start));
+    }
 
     if (name) {
       const options = [
