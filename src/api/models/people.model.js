@@ -68,17 +68,21 @@ PeopleSchema.statics = {
     medicalRecords,
     address
   }) {
-    const options = omitBy(
-      { name, cardNumber, medicalRecords, address },
-      isNil
-    );
+    let query = this.find();
 
-    const list = await this.find(options)
+    if (name) {
+      const options = [
+        { name: { $regex: `.*${name}.*` } },
+        { cardNumber: { $regex: `.*${name}.*` } }
+      ];
+      query.or(options);
+    }
+
+    const list = await query
       .skip(pageSize * (page - 1))
       .limit(Number(pageSize))
       .exec();
 
-    console.log(list);
     return list;
   }
 };

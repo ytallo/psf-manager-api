@@ -1,10 +1,7 @@
 import dotenv from "dotenv-safe";
 import path from "path";
 
-dotenv.load({
-  path: path.join(__dirname, "../.env"),
-  sample: path.join(__dirname, "../.env.example")
-});
+dotenv.config();
 
 export const env = process.env.NODE_ENV;
 export const port = process.env.PORT || 3000;

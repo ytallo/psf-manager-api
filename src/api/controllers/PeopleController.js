@@ -21,6 +21,17 @@ export class PeopleController {
       next(err);
     }
   };
+
+  remove = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const people = await People.remove({ _id: id });
+      res.status(200);
+      res.send();
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 export default new PeopleController();
